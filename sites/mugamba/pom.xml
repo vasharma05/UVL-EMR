@@ -25,6 +25,7 @@
       <groupId>com.ozoneuvl</groupId>
       <version>1.0.0-SNAPSHOT</version>
       <type>zip</type>
+      <scope>runtime</scope>
     </dependency>
 
   </dependencies>
@@ -63,4 +64,34 @@
       </build>
     </profile>
   </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <!-- Copy UVL Disto docker compose .txt file -->
+            <id>Copy UVL Disto docker compose .txt file</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/run/docker/scripts</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/../scripts</directory>
+                  <includes>
+                    <include>docker*</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

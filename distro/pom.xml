@@ -6,7 +6,7 @@
     <groupId>com.ozonehis</groupId>
     <artifactId>maven-parent</artifactId>
     <version>1.0.0-alpha.13</version>
-    <relativePath>../pom.xml</relativePath>
+    <relativePath/>
   </parent>
 
   <groupId>com.ozoneuvl</groupId>
@@ -57,4 +57,34 @@
       </build>
     </profile>
   </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <!-- Copy UVL Disto docker compose .txt file -->
+            <id>Copy UVL Disto docker compose .txt file</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/run/docker/scripts</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/../scripts</directory>
+                  <includes>
+                    <include>docker*</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
