@@ -1,0 +1,45 @@
+{
+  "@openmrs/esm-patient-chart-app": {
+    "logo": {
+      "src": "configs/header-logo.png"
+    },
+    "Display conditions": {
+      "roles": ["Organizational: Nurse"]
+    }
+  },
+  "@openmrs/esm-login-app": {
+    "logo": {
+      "src": "configs/logo.png"
+    },
+    "footer": {
+      "additionalLogos": [
+        {
+          "src": "configs/ozone.png",
+          "alt": ""
+        },
+        {
+          "src": "configs/madiro.png",
+          "alt": ""
+        }
+      ]
+    }
+  },
+  "@openmrs/esm-primary-navigation-app": {
+    "logo": {
+      "src": "configs/header-logo.png"
+    },
+    "extensionSlots": {
+      "patient-chart-dashboard-slot": {
+        "remove": ["offline-tools-patient-chart-actions-dashboard-link"]
+      }
+    }
+  },
+  "@openmrs/esm-styleguide": {
+    "Brand color #1": "#1c361c",
+    "Brand color #2": "#414141",
+    "Brand color #3": "#1c361c"
+  },
+  "@openmrs/esm-patient-registration-app": {
+    "defaultPatientIdentifierTypes": ["05a29f94-c0ed-11e2-94be-8c13b969e334"]
+  }
+}
